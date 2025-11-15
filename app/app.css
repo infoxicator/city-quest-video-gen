@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fff;
-  --foreground: #000;
-  --unfocused-border-color: #eaeaea;
-  --focused-border-color: #666;
+  --background: #0c0a09;
+  --foreground: #ffffff;
+  --unfocused-border-color: #57534e;
+  --focused-border-color: #fbbf24;
 
-  --button-disabled-color: #fafafa;
-  --disabled-text-color: #999;
+  --button-disabled-color: #292524;
+  --disabled-text-color: #57534e;
 
   --geist-border-radius: 5px;
   --geist-quarter-pad: 6px;
@@ -17,59 +17,96 @@
 
   --geist-error: #e00;
 
-  --subtitle: #666;
+  --subtitle: #fde68a;
 }
 
 html {
-  background-color: #05060d;
+  background: linear-gradient(135deg, #3b0764 0%, #7c2d12 50%, #0c0a09 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  position: relative;
+}
+
+html::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(255, 215, 0, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 body {
   margin: 0;
-  background-color: #05060d;
+  background: transparent;
+  position: relative;
+  z-index: 1;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #000000;
-    --unfocused-border-color: #333;
-    --focused-border-color: #888;
-    --foreground: #fff;
-    --button-disabled-color: #111;
-    --geist-error: red;
-    --subtitle: #8d8d8d;
+    --background: #0c0a09;
+    --unfocused-border-color: #57534e;
+    --focused-border-color: #fbbf24;
+    --foreground: #ffffff;
+    --button-disabled-color: #292524;
+    --geist-error: #e00;
+    --subtitle: #fde68a;
   }
 }
 
-
-.tbpn-headline {
+.city-quest-headline {
   font-family: "Space Grotesk", "Saira", "Montserrat", "Helvetica", sans-serif;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   font-weight: 700;
-  text-shadow: 0 6px 20px rgba(0, 0, 0, 0.75);
+  text-shadow: 0 6px 20px rgba(0, 0, 0, 0.75), 0 0 20px rgba(255, 215, 0, 0.3);
 }
 
-.tbpn-subheadline {
+.city-quest-subheadline {
   font-family: "Space Grotesk", "Saira", "Montserrat", "Helvetica", sans-serif;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 600;
-  text-shadow: 0 3px 14px rgba(0, 0, 0, 0.65);
+  text-shadow: 0 3px 14px rgba(0, 0, 0, 0.65), 0 0 10px rgba(255, 215, 0, 0.2);
 }
 
-.tbpn-body {
+.city-quest-body {
   font-family: "Inter", "Outfit", "Helvetica", sans-serif;
 }
 
-.tbpn-panel {
-  background: linear-gradient(155deg, #050807 0%, #02110c 55%, #000000 100%);
+.city-quest-panel {
+  background: linear-gradient(155deg, #3b0764 0%, #7c2d12 55%, #0c0a09 100%);
   border-radius: 28px;
-  border: 1px solid rgba(13, 71, 49, 0.55);
-  box-shadow: 0 40px 90px rgba(2, 12, 9, 0.6);
+  border: 1px solid rgba(146, 64, 14, 0.55);
+  box-shadow: 0 40px 90px rgba(12, 10, 9, 0.6), 0 0 40px rgba(255, 215, 0, 0.1);
+  position: relative;
 }
 
-.tbpn-chip {
+.city-quest-panel::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 28px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.3), rgba(217, 119, 6, 0.3), rgba(251, 191, 36, 0.2));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.city-quest-panel-secondary {
+  background: linear-gradient(160deg, rgba(59, 7, 100, 0.88) 0%, rgba(124, 45, 18, 0.92) 100%);
+  border-radius: 28px;
+  border: 1px solid rgba(180, 83, 9, 0.4);
+  box-shadow: 0 40px 90px rgba(12, 10, 9, 0.5), 0 0 30px rgba(255, 215, 0, 0.08);
+}
+
+.city-quest-chip {
   font-family: "Space Grotesk", "Saira", "Montserrat", sans-serif;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -79,23 +116,23 @@ body {
   padding: 0.4rem 1.1rem;
   border-radius: 999px;
   font-size: clamp(0.6rem, 1vw, 0.72rem);
-  background: linear-gradient(135deg, rgba(18, 220, 149, 0.92) 0%, rgba(0, 170, 121, 0.9) 45%, rgba(0, 140, 104, 0.95) 100%);
-  color: #02130d;
-  box-shadow: 0 16px 36px rgba(2, 190, 130, 0.45), 0 0 16px rgba(0, 255, 198, 0.48);
-  border: 1px solid rgba(166, 255, 216, 0.35);
+  background: linear-gradient(135deg, rgba(217, 119, 6, 0.92) 0%, rgba(180, 83, 9, 0.9) 45%, rgba(146, 64, 14, 0.95) 100%);
+  color: #7c2d12;
+  box-shadow: 0 16px 36px rgba(217, 119, 6, 0.45), 0 0 16px rgba(251, 191, 36, 0.48);
+  border: 1px solid rgba(251, 191, 36, 0.35);
   text-shadow: none;
 }
 
-.tbpn-chip::before {
+.city-quest-chip::before {
   content: "";
   width: 6px;
   height: 6px;
   border-radius: 999px;
-  background: rgba(4, 32, 22, 0.85);
-  box-shadow: inset 0 0 0 1px rgba(4, 32, 22, 0.25);
+  background: rgba(124, 45, 18, 0.85);
+  box-shadow: inset 0 0 0 1px rgba(124, 45, 18, 0.25), 0 0 8px rgba(255, 215, 0, 0.5);
 }
 
-.tbpn-label {
+.city-quest-label {
   font-family: "Space Grotesk", "Saira", "Montserrat", sans-serif;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -103,351 +140,100 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  color: #eefdf6;
-  background: linear-gradient(130deg, rgba(24, 176, 125, 0.22), rgba(10, 132, 92, 0.16));
+  color: #fef3c7;
+  background: linear-gradient(130deg, rgba(217, 119, 6, 0.22), rgba(146, 64, 14, 0.16));
   border-radius: 999px;
   padding: 0.45rem 1.1rem;
-  border: 1px solid rgba(78, 216, 169, 0.5);
-  text-shadow: 0 2px 14px rgba(6, 24, 18, 0.7);
+  border: 1px solid rgba(251, 191, 36, 0.5);
+  text-shadow: 0 2px 14px rgba(12, 10, 9, 0.7), 0 0 8px rgba(255, 215, 0, 0.3);
 }
 
-.tbpn-label::before {
+.city-quest-label::before {
   content: "";
   width: 8px;
   height: 8px;
   border-radius: 999px;
-  background: #16ffb9;
-  box-shadow: 0 0 12px rgba(22, 255, 185, 0.7);
+  background: #fbbf24;
+  box-shadow: 0 0 12px rgba(251, 191, 36, 0.7), 0 0 20px rgba(255, 215, 0, 0.4);
 }
 
-.tbpn-glow-border {
-  border-image: linear-gradient(90deg, #16ffb9 0%, #00c27a 50%, #0cffa6 100%) 1;
+.city-quest-glow-border {
+  border-image: linear-gradient(90deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%) 1;
   border-width: 1px;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
 }
 
-.breaking-panel {
-  background: linear-gradient(160deg, #36080a 0%, #1b0406 60%, #050001 100%);
-  border-radius: 28px;
-  border: 1px solid rgba(255, 58, 58, 0.35);
-  box-shadow: 0 40px 90px rgba(70, 9, 13, 0.6);
+.hero-gradient {
+  background: linear-gradient(135deg, #d97706 0%, #a16207 50%, #292524 100%);
+  position: relative;
 }
 
-.breaking-panel-secondary {
-  background: linear-gradient(160deg, rgba(76, 14, 18, 0.88) 0%, rgba(30, 4, 8, 0.92) 100%);
-  border-radius: 28px;
-  border: 1px solid rgba(255, 84, 84, 0.28);
-  box-shadow: 0 40px 90px rgba(60, 8, 12, 0.5);
-}
-
-.funding-panel {
-  background: linear-gradient(160deg, #06211a 0%, #02130d 55%, #010705 100%);
-  border-radius: 28px;
-  border: 1px solid rgba(39, 201, 141, 0.4);
-  box-shadow: 0 40px 90px rgba(8, 64, 41, 0.6);
-}
-
-.funding-panel-secondary {
-  background: linear-gradient(160deg, rgba(16, 72, 51, 0.9) 0%, rgba(5, 38, 28, 0.92) 100%);
-  border-radius: 28px;
-  border: 1px solid rgba(54, 210, 156, 0.32);
-  box-shadow: 0 40px 90px rgba(6, 46, 32, 0.5);
-}
-
-.funding-chip {
-  font-family: "Space Grotesk", "Saira", "Montserrat", sans-serif;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.4rem 1.1rem;
-  border-radius: 999px;
-  font-size: clamp(0.6rem, 1vw, 0.72rem);
-  background: linear-gradient(135deg, rgba(61, 242, 179, 0.92) 0%, rgba(30, 197, 138, 0.9) 45%, rgba(16, 153, 112, 0.95) 100%);
-  color: #012118;
-  box-shadow: 0 16px 36px rgba(24, 169, 120, 0.45), 0 0 16px rgba(64, 255, 205, 0.6);
-  border: 1px solid rgba(160, 255, 221, 0.35);
-  text-shadow: none;
-}
-
-.funding-chip::before {
+.hero-gradient::before {
   content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 999px;
-  background: rgba(4, 48, 32, 0.85);
-  box-shadow: inset 0 0 0 1px rgba(4, 48, 32, 0.3);
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255, 215, 0, 0.2) 0%, transparent 70%);
+  pointer-events: none;
 }
 
-.funding-label {
-  font-family: "Space Grotesk", "Saira", "Montserrat", sans-serif;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  font-size: clamp(0.6rem, 0.95vw, 0.72rem);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  color: #e8fff7;
-  background: linear-gradient(130deg, rgba(43, 214, 153, 0.24), rgba(24, 143, 99, 0.18));
-  border-radius: 999px;
-  padding: 0.45rem 1.1rem;
-  border: 1px solid rgba(70, 235, 173, 0.5);
-  text-shadow: 0 2px 14px rgba(6, 32, 21, 0.7);
+.portrait-frame {
+  border: 2px solid #92400e;
+  border-radius: 12px;
+  box-shadow: 
+    0 0 0 4px rgba(124, 45, 18, 0.3),
+    0 0 0 8px rgba(146, 64, 14, 0.2),
+    inset 0 0 30px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(255, 215, 0, 0.2);
+  background: linear-gradient(135deg, rgba(59, 7, 100, 0.3), rgba(124, 45, 18, 0.3));
+  position: relative;
 }
 
-.funding-label::before {
+.portrait-frame::before {
   content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  background: #3cffb8;
-  box-shadow: 0 0 12px rgba(60, 255, 184, 0.7);
+  position: absolute;
+  inset: -2px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #9333ea, #d97706, #fbbf24);
+  opacity: 0.3;
+  z-index: -1;
+  filter: blur(8px);
 }
 
-.cobalt-panel {
-  background: linear-gradient(155deg, #10133b 0%, #080a20 60%, #03040e 100%);
-  border-radius: 28px;
-  border: 1px solid rgba(96, 105, 255, 0.35);
-  box-shadow: 0 40px 90px rgba(30, 36, 120, 0.55);
+.adventure-card-tour {
+  border-left: 4px solid;
+  border-image: linear-gradient(180deg, #9333ea, #d97706) 1;
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(217, 119, 6, 0.1));
 }
 
-.cobalt-panel-secondary {
-  background: linear-gradient(160deg, rgba(40, 43, 120, 0.88) 0%, rgba(18, 20, 70, 0.92) 100%);
-  border-radius: 28px;
-  border: 1px solid rgba(104, 112, 255, 0.28);
-  box-shadow: 0 40px 90px rgba(22, 26, 90, 0.52);
+.adventure-card-foodie {
+  border-left: 4px solid;
+  border-image: linear-gradient(180deg, #f59e0b, #ca8a04) 1;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(202, 138, 4, 0.1));
 }
 
-.cobalt-chip {
-  font-family: "Space Grotesk", "Saira", "Montserrat", sans-serif;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.4rem 1.1rem;
-  border-radius: 999px;
-  font-size: clamp(0.6rem, 1vw, 0.72rem);
-  background: linear-gradient(135deg, rgba(123, 130, 255, 0.92) 0%, rgba(80, 86, 230, 0.9) 45%, rgba(46, 51, 170, 0.95) 100%);
-  color: #eef0ff;
-  box-shadow: 0 16px 36px rgba(64, 72, 210, 0.45), 0 0 16px rgba(123, 130, 255, 0.6);
-  border: 1px solid rgba(158, 162, 255, 0.35);
-  text-shadow: none;
+.adventure-card-race {
+  border-left: 4px solid;
+  border-image: linear-gradient(180deg, #57534e, #b45309) 1;
+  background: linear-gradient(135deg, rgba(87, 83, 78, 0.1), rgba(180, 83, 9, 0.1));
 }
 
-.cobalt-chip::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.6);
-  box-shadow: inset 0 0 0 1px rgba(40, 44, 140, 0.3);
+.start-button-gradient {
+  background: linear-gradient(135deg, #f59e0b, #ca8a04);
+  border: 1px solid #fbbf24;
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.4), 0 0 16px rgba(251, 191, 36, 0.3);
+  transition: all 0.3s ease;
 }
 
-.cobalt-label {
-  font-family: "Space Grotesk", "Saira", "Montserrat", sans-serif;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  font-size: clamp(0.6rem, 0.95vw, 0.72rem);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  color: #f3f3ff;
-  background: linear-gradient(130deg, rgba(123, 130, 255, 0.22), rgba(77, 83, 210, 0.18));
-  border-radius: 999px;
-  padding: 0.45rem 1.1rem;
-  border: 1px solid rgba(140, 147, 255, 0.45);
-  text-shadow: 0 2px 14px rgba(16, 18, 60, 0.7);
+.start-button-gradient:hover {
+  background: linear-gradient(135deg, #fbbf24, #eab308);
+  box-shadow: 0 12px 32px rgba(251, 191, 36, 0.5), 0 0 24px rgba(255, 215, 0, 0.4);
+  transform: translateY(-2px);
 }
 
-.cobalt-label::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  background: #787fff;
-  box-shadow: 0 0 12px rgba(120, 127, 255, 0.7);
-}
-
-.signed-panel {
-  background: linear-gradient(155deg, #131540 0%, #090b2b 60%, #04051a 100%);
-  border-radius: 28px;
-  border: 1px solid rgba(122, 128, 255, 0.35);
-  box-shadow: 0 40px 90px rgba(34, 38, 120, 0.55);
-}
-
-.signed-panel-secondary {
-  background: linear-gradient(160deg, rgba(44, 49, 124, 0.9) 0%, rgba(21, 24, 82, 0.92) 100%);
-  border-radius: 28px;
-  border: 1px solid rgba(134, 142, 255, 0.28);
-  box-shadow: 0 40px 90px rgba(26, 29, 90, 0.52);
-}
-
-.signed-chip {
-  font-family: "Space Grotesk", "Saira", "Montserrat", sans-serif;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.4rem 1.1rem;
-  border-radius: 999px;
-  font-size: clamp(0.6rem, 1vw, 0.72rem);
-  background: linear-gradient(135deg, rgba(141, 147, 255, 0.92) 0%, rgba(96, 103, 230, 0.9) 45%, rgba(60, 65, 190, 0.95) 100%);
-  color: #eef0ff;
-  box-shadow: 0 16px 36px rgba(82, 90, 220, 0.45), 0 0 16px rgba(140, 146, 255, 0.6);
-  border: 1px solid rgba(176, 180, 255, 0.35);
-  text-shadow: none;
-}
-
-.signed-chip::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.6);
-  box-shadow: inset 0 0 0 1px rgba(46, 50, 134, 0.3);
-}
-
-.signed-label {
-  font-family: "Space Grotesk", "Saira", "Montserrat", sans-serif;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  font-size: clamp(0.6rem, 0.95vw, 0.72rem);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  color: #f6f4ff;
-  background: linear-gradient(130deg, rgba(132, 139, 255, 0.22), rgba(92, 100, 220, 0.18));
-  border-radius: 999px;
-  padding: 0.45rem 1.1rem;
-  border: 1px solid rgba(156, 164, 255, 0.45);
-  text-shadow: 0 2px 14px rgba(20, 22, 68, 0.7);
-}
-
-.signed-label::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  background: #8a91ff;
-  box-shadow: 0 0 12px rgba(138, 145, 255, 0.7);
-}
-
-.profile-panel {
-  background: linear-gradient(160deg, #2c0708 0%, #1a0304 55%, #070001 100%);
-  border-radius: 28px;
-  border: 1px solid rgba(255, 82, 92, 0.4);
-  box-shadow: 0 40px 90px rgba(72, 10, 14, 0.55);
-}
-
-.profile-panel-secondary {
-  background: linear-gradient(160deg, rgba(104, 14, 20, 0.92) 0%, rgba(55, 6, 10, 0.92) 100%);
-  border-radius: 28px;
-  border: 1px solid rgba(255, 112, 120, 0.32);
-  box-shadow: 0 40px 90px rgba(72, 12, 16, 0.5);
-}
-
-.profile-chip {
-  font-family: "Space Grotesk", "Saira", "Montserrat", sans-serif;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.4rem 1.1rem;
-  border-radius: 999px;
-  font-size: clamp(0.6rem, 1vw, 0.72rem);
-  background: linear-gradient(135deg, rgba(255, 104, 116, 0.92) 0%, rgba(230, 45, 61, 0.9) 45%, rgba(180, 18, 32, 0.95) 100%);
-  color: #fff0f2;
-  box-shadow: 0 16px 36px rgba(180, 22, 34, 0.45), 0 0 16px rgba(255, 112, 120, 0.6);
-  border: 1px solid rgba(255, 168, 176, 0.35);
-  text-shadow: none;
-}
-
-.profile-chip::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 999px;
-  background: rgba(70, 10, 12, 0.85);
-  box-shadow: inset 0 0 0 1px rgba(70, 10, 12, 0.3);
-}
-
-.profile-label {
-  font-family: "Space Grotesk", "Saira", "Montserrat", sans-serif;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  font-size: clamp(0.6rem, 0.95vw, 0.72rem);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  color: #ffe4e8;
-  background: linear-gradient(130deg, rgba(255, 96, 112, 0.24), rgba(204, 32, 42, 0.18));
-  border-radius: 999px;
-  padding: 0.45rem 1.1rem;
-  border: 1px solid rgba(255, 144, 152, 0.5);
-  text-shadow: 0 2px 14px rgba(40, 8, 12, 0.7);
-}
-
-.profile-label::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  background: #ff5f73;
-  box-shadow: 0 0 12px rgba(255, 95, 115, 0.7);
-}
-
-.breaking-chip {
-  font-family: "Space Grotesk", "Saira", "Montserrat", sans-serif;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.4rem 1.1rem;
-  border-radius: 999px;
-  font-size: clamp(0.6rem, 1vw, 0.72rem);
-  background: linear-gradient(135deg, rgba(255, 83, 83, 0.92) 0%, rgba(186, 24, 32, 0.9) 45%, rgba(122, 6, 16, 0.95) 100%);
-  color: #ffeaea;
-  box-shadow: 0 16px 36px rgba(150, 14, 24, 0.45), 0 0 16px rgba(255, 90, 90, 0.65);
-  border: 1px solid rgba(255, 160, 160, 0.35);
-  text-shadow: none;
-}
-
-.breaking-chip::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.5);
-  box-shadow: inset 0 0 0 1px rgba(120, 0, 6, 0.3);
-}
-
-.breaking-label {
-  font-family: "Space Grotesk", "Saira", "Montserrat", sans-serif;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  font-size: clamp(0.6rem, 0.95vw, 0.72rem);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  color: #ffecec;
-  background: linear-gradient(130deg, rgba(255, 88, 88, 0.22), rgba(180, 32, 40, 0.18));
-  border-radius: 999px;
-  padding: 0.45rem 1.1rem;
-  border: 1px solid rgba(255, 120, 120, 0.45);
-  text-shadow: 0 2px 14px rgba(40, 4, 6, 0.7);
-}
-
-.breaking-label::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  background: #ff4141;
-  box-shadow: 0 0 12px rgba(255, 73, 73, 0.7);
+.active-card-style {
+  border: 2px solid #fbbf24;
+  background: #78350f;
+  box-shadow: 0 0 30px rgba(251, 191, 36, 0.4), inset 0 0 20px rgba(120, 53, 15, 0.5);
 }
 
 @theme {

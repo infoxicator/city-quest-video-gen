@@ -221,7 +221,7 @@ const ImageUploadInner: React.ForwardRefRenderFunction<
         <label className="cursor-pointer block" htmlFor="imageFile">
           <div className="flex flex-col items-center gap-3 text-center">
             <div className="text-2xl">📁</div>
-            <p className={cn("tbpn-subheadline text-xs", mergedAppearance.statusTextClassName)}>{statusMessage}</p>
+            <p className={cn("city-quest-subheadline text-xs", mergedAppearance.statusTextClassName)}>{statusMessage}</p>
             {isUploading ? <div className={cn("text-xs", mergedAppearance.uploadingTextClassName)}>{t.imageUploading}</div> : null}
             {uploadError ? <div className={cn("text-xs", mergedAppearance.errorTextClassName)}>{uploadError}</div> : null}
             {uploadedImageUrl ? (

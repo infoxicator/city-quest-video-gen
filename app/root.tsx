@@ -11,15 +11,15 @@ import {
 export const meta: MetaFunction = () => {
   return [
     {
-      title: "TBPN Video Generator",
+      title: "City Quest",
     },
     { charset: "utf-8" },
     { name: "viewport", content: "width=device-width,initial-scale=1" },
-    { property: "og:title", content: "TBPN Video Generator" },
+    { property: "og:title", content: "City Quest" },
     {
       name: "description",
       content:
-        "Produce TBPN-style videos instantly. Upload a headshot and download a broadcast-ready video.",
+        "City Quest - Choose your own adventure game. Generate adventure summary videos with a magical, high-fantasy theme.",
     },
   ];
 };

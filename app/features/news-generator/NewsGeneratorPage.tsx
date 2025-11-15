@@ -248,7 +248,7 @@ export const NewsGeneratorPage: React.FC<GeneratorProps> = ({ loaderData, theme 
           <div className={cn("px-7 py-9 md:px-12 md:py-12 flex flex-col gap-7", theme.panelClassName)}>
             <div>
               <p className={theme.chipClassName}>{theme.copy.heroChip}</p>
-              <h2 className="tbpn-headline text-4xl md:text-5xl text-white mt-4">{theme.copy.heroTitle}</h2>
+              <h2 className="city-quest-headline text-4xl md:text-5xl text-white mt-4">{theme.copy.heroTitle}</h2>
               <p className={cn("text-sm md:text-base mt-4 max-w-2xl", theme.heroDescriptionClassName)}>
                 {theme.copy.heroDescription}
               </p>
@@ -295,7 +295,7 @@ export const NewsGeneratorPage: React.FC<GeneratorProps> = ({ loaderData, theme 
                   <button
                     type="button"
                     className={cn(
-                      "px-4 py-2 text-xs tbpn-subheadline rounded-full border transition-colors duration-150 tracking-[0.2em]",
+                      "px-4 py-2 text-xs city-quest-subheadline rounded-full border transition-colors duration-150 tracking-[0.2em]",
                       imageMode === "upload" ? theme.imageModeActiveClassName : theme.imageModeInactiveClassName,
                     )}
                     onClick={() => handleImageModeChange("upload", { openDialog: true })}
@@ -306,7 +306,7 @@ export const NewsGeneratorPage: React.FC<GeneratorProps> = ({ loaderData, theme 
                   <button
                     type="button"
                     className={cn(
-                      "px-4 py-2 text-xs tbpn-subheadline rounded-full border transition-colors duration-150 tracking-[0.2em]",
+                      "px-4 py-2 text-xs city-quest-subheadline rounded-full border transition-colors duration-150 tracking-[0.2em]",
                       imageMode === "url" ? theme.imageModeActiveClassName : theme.imageModeInactiveClassName,
                     )}
                     onClick={() => handleImageModeChange("url")}

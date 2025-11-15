@@ -22,8 +22,8 @@ export const RenderControls: React.FC<{
     contentClassName: "text-[#dfffee]",
     iconClassName: "h-2.5 w-2.5 rounded-full bg-[#27ffc0] shadow-[0_0_12px_rgba(39,255,192,0.8)]",
     spinnerColor: "#27ffc0",
-    labelClassName: "tbpn-subheadline text-xs tracking-[0.32em] uppercase",
-    shareLabel: "Share this TBPN segment",
+    labelClassName: "city-quest-subheadline text-xs tracking-[0.32em] uppercase",
+    shareLabel: "Share this adventure",
     hoverOverlayClassName: "bg-[radial-gradient(circle_at_top,rgba(45,255,183,0.35),rgba(0,0,0,0))]",
     ...(appearance ?? {}),
   };
@@ -86,7 +86,7 @@ export const RenderControls: React.FC<{
         {isSubmitting ? (
           <div className={cn("relative flex items-center gap-3", mergedAppearance.contentClassName)}>
             <Spinner size={24} color={mergedAppearance.spinnerColor} />
-            <span className="tbpn-subheadline text-xs tracking-[0.3em] uppercase">Preparing share link…</span>
+            <span className="city-quest-subheadline text-xs tracking-[0.3em] uppercase">Preparing share link…</span>
           </div>
         ) : (
           <div className={cn("relative flex items-center gap-3", mergedAppearance.contentClassName)}>
