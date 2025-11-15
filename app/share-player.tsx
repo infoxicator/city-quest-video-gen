@@ -60,7 +60,9 @@ export async function clientLoader({ params, request }: { params: { shareId?: st
       } satisfies LoaderData;
     }
 
-    const parsed = StoryResponse.safeParse(json?.payload);
+    const payload = json?.payload;
+    const storyPayload = payload?.storyData ?? payload;
+    const parsed = StoryResponse.safeParse(storyPayload);
     if (!parsed.success) {
       return {
         status: "error",
